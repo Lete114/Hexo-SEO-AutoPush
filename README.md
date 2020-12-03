@@ -9,7 +9,7 @@
 
 2. 安全设置
 打开你博客仓库地址如下图
-![Secrets](https://cdn.jsdelivr.net/gh/lete114/hexo-seo-autopush/img/Secrets.png)
+![Secrets](https://cdn.jsdelivr.net/gh/lete114/CDN2@latest/img/Hexo-SEO-AutoPush/Secrets.png)
 
 Name | Value | 说明
 --- | ------ | ------
