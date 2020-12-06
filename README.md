@@ -6,9 +6,29 @@
 
 ## 使用
 1. 安装
-`npm install hexo-seo-autopush --save` 
+``` bash 
+npm install hexo-seo-autopush --save
+``` 
 
-2. 安全设置
+2. 配置文件
+在hexo _config.yml 配置文件中添加
+``` yml
+# enable: 开启/关闭 推送
+# count: 每次提交最新的10篇文章
+hexo_seo_autopush:
+  baidu:
+    enable: true
+    count: 10
+  bing:
+    enable: true
+    count: 10
+  google:
+    enable: true
+    count: 10 
+    google_file: google_service_account.json # 谷歌服务账户
+```
+
+3. 安全设置
 打开你博客仓库地址如下图
 ![Secrets](https://cdn.jsdelivr.net/gh/lete114/CDN2@latest/img/Hexo-SEO-AutoPush/Secrets.png)
 
