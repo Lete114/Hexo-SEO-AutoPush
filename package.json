@@ -1,7 +1,7 @@
 {
   "name": "hexo-seo-autopush",
-  "version": "1.0.1",
-  "description": "everyday Automatically submit url to Baidu and Bing",
+  "version": "2.0.0",
+  "description": "Daily automatic submission of urls to baidu and Google bing",
   "main": "index.js",
   "scripts": {},
   "keywords": [
@@ -9,6 +9,7 @@
     "deployer",
     "baidu",
     "bing",
+    "google",
     "push",
     "url",
     "seo"
