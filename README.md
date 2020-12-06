@@ -15,6 +15,7 @@ npm install hexo-seo-autopush --save
 ``` yml
 # enable: 开启/关闭 推送
 # count: 每次提交最新的10篇文章
+# https://github.com/lete114/hexo-seo-autopush.git
 hexo_seo_autopush:
   baidu:
     enable: true
@@ -24,7 +25,6 @@ hexo_seo_autopush:
     count: 10
   google:
     enable: true
-    count: 10 
     google_file: google_service_account.json # 谷歌服务账户
 ```
 
