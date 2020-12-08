@@ -25,6 +25,7 @@ hexo_seo_autopush:
     count: 10
   google:
     enable: true
+    count: 10
     google_file: google_service_account.json # 谷歌服务账户
 ```
 
