@@ -1,6 +1,6 @@
 {
   "name": "hexo-seo-autopush",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Daily automatic submission of urls to baidu and Google bing",
   "main": "index.js",
   "scripts": {},

@@ -14,17 +14,23 @@ npm install hexo-seo-autopush --save
 在hexo _config.yml 配置文件中添加
 ``` yml
 # enable: 开启/关闭 推送
+# cron: 执行时间周期
 # count: 每次提交最新的10篇文章
+# date: 更新时间(updated)|创建日期(created)
 # https://github.com/lete114/hexo-seo-autopush.git
 hexo_seo_autopush:
+  cron: 0 4 * * *
   baidu:
     enable: true
+    date: created 
     count: 10
   bing:
     enable: true
+    date: created 
     count: 10
   google:
     enable: true
+    date: created 
     count: 10
     google_file: google_service_account.json # 谷歌服务账户
 ```
