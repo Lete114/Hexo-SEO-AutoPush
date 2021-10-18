@@ -37,7 +37,7 @@ hexo_seo_autopush:
 
 3. 安全设置
 打开你博客仓库地址如下图
-![Secrets](https://cdn.jsdelivr.net/gh/lete114/CDN2@latest/img/Hexo-SEO-AutoPush/Secrets.png)
+![Secrets](https://user-images.githubusercontent.com/48512251/137736248-80c8ae8d-7f5e-40b1-81f9-4a1bb78fcd8f.png)
 
 Name | Value | 说明
 --- | ------ | ------
