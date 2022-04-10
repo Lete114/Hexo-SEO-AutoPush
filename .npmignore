@@ -1,0 +1,10 @@
+# git
+.git
+
+# vscode
+.vscode
+
+# project file
+node_modules
+package-lock.json
+

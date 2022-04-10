@@ -1,9 +1,12 @@
 {
   "name": "hexo-seo-autopush",
-  "version": "2.0.5",
+  "version": "2.1.0-beat.0",
   "description": "Daily automatic submission of urls to baidu and Google bing",
   "main": "index.js",
   "scripts": {},
+  "bin": {
+    "hexoautopush": "bin/google_push.js"
+  },
   "keywords": [
     "hexo",
     "deployer",
@@ -16,15 +19,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/lete114/hexo-seo-autopush.git"
+    "url": "https://github.com/Lete114/hexo-seo-autopush.git"
   },
   "author": {
     "name": "Lete114",
-    "url": "https://www.lete114.top"
+    "url": "https://www.imlete.cn"
   },
   "license": "MIT",
   "dependencies": {
     "googleapis": "^67.0.0",
+    "js-yaml": "^4.0.0",
     "request": "^2.88.2"
   }
 }
