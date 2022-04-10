@@ -45,8 +45,8 @@ hexo_seo_autopush:
 | ------------ | ----------------- | ------------------------------------------------------------------------------------------------------ |
 | baidu_token  | UlxxxxxxxxxxxxxB9 | 【必填】Value 输入百度的 token                                                                         |
 | bing_apikey  | 47xxxxxxxxxxxxx91 | 【必填】Value 输入必应的 apikey                                                                        |
-| private_key  | xxxxxxxxxxxxxxxxx | 【必填】Value 输入谷歌的 private_key （注意：填写的时候需要使用**双引号**包起来，如: `"private_key"`） |
-| client_email | xxxxxxxxxxxxxxxxx | 【必填】Value 输入谷歌的 client_email                                                                  |
+| google_private_key  | xxxxxxxxxxxxxxxxx | 【必填】Value 输入谷歌的 private_key （注意：填写的时候需要使用**双引号**包起来，如: `"private_key"`） |
+| google_client_email | xxxxxxxxxxxxxxxxx | 【必填】Value 输入谷歌的 client_email                                                                  |
 
 ## Baidu key
 

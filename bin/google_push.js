@@ -5,14 +5,9 @@ const { google } = require('googleapis')
 const fs = require('fs')
 const readline = require('readline')
 const { join } = require('path')
-const yaml = require('js-yaml')
-
-const CWD = process.cwd()
 
 try {
-  const hexo = yaml.load(fs.readFileSync(join(CWD, '_config.yml'), 'utf8'))
-
-  const UrlsFile = join(CWD, hexo.public_dir, 'google.txt')
+  const UrlsFile = join(process.cwd(), 'google.txt')
   const [client_email, private_key] = process.argv.splice(2)
 
   function readFileToArr(fReadName) {
