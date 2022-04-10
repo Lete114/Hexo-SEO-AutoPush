@@ -37,14 +37,25 @@ hexo_seo_autopush:
     count: 10
 ```
 
+由于生成的 actions 是在`.github/workflows/HexoSeoAutoPush.yml`，点开头的文件或文件夹都会被视为隐藏文件，所以 hexo 不会将隐藏文件部署到 pages，需要新增配置`ignore_hidden`
+
+```yml
+deploy:
+  type: git
+  repo: https://github.com/<username>/<project>
+  # example, https://github.com/hexojs/hexojs.github.io
+  branch: gh-pages
+  ignore_hidden: false # 忽略隐藏文件及文件夹(目录)
+```
+
 3. 安全设置
    打开你博客仓库地址如下图
    ![Secrets](https://user-images.githubusercontent.com/48512251/137736248-80c8ae8d-7f5e-40b1-81f9-4a1bb78fcd8f.png)
 
-| Name         | Value             | 说明                                                                                                   |
-| ------------ | ----------------- | ------------------------------------------------------------------------------------------------------ |
-| baidu_token  | UlxxxxxxxxxxxxxB9 | 【必填】Value 输入百度的 token                                                                         |
-| bing_apikey  | 47xxxxxxxxxxxxx91 | 【必填】Value 输入必应的 apikey                                                                        |
+| Name                | Value             | 说明                                                                                                   |
+| ------------------- | ----------------- | ------------------------------------------------------------------------------------------------------ |
+| baidu_token         | UlxxxxxxxxxxxxxB9 | 【必填】Value 输入百度的 token                                                                         |
+| bing_apikey         | 47xxxxxxxxxxxxx91 | 【必填】Value 输入必应的 apikey                                                                        |
 | google_private_key  | xxxxxxxxxxxxxxxxx | 【必填】Value 输入谷歌的 private_key （注意：填写的时候需要使用**双引号**包起来，如: `"private_key"`） |
 | google_client_email | xxxxxxxxxxxxxxxxx | 【必填】Value 输入谷歌的 client_email                                                                  |
 
