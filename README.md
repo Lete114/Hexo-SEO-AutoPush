@@ -20,7 +20,7 @@ npm install hexo-seo-autopush --save
 # cron: 执行时间周期
 # count: 每次提交最新的10篇文章，输入0或者不填写则默认为所有文章(建议是最新的10篇文章)
 # date: 更新时间(updated)|创建日期(created)
-# https://github.com/lete114/hexo-seo-autopush.git
+# https://github.com/Lete114/hexo-seo-autopush.git
 hexo_seo_autopush:
   cron: 0 4 * * *
   baidu:

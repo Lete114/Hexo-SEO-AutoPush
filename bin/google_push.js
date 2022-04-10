@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const request = require('request')
 const { google } = require('googleapis')
 const fs = require('fs')
