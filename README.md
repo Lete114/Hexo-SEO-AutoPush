@@ -109,7 +109,7 @@ deploy:
 
 点击`密钥`标签, 点击`添加密钥`, 点击`创建新密钥`.
 
-![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-创建凭证-创建密钥.jpg)
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-创建凭证-创建密钥2.jpg)
 
 选择JSON格式, 点击`创建`, 然后JSON格式的密钥就会自动下载到电脑中.
 
