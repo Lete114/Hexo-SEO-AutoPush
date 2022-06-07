@@ -72,18 +72,56 @@ deploy:
 
 ## Google key
 
-1. 打开 Google indexing API[官网](https://console.developers.google.com/flows/enableapi?apiid=indexing.googleapis.com&credential=client_key)
-2. 选择创建项目，点击继续
-3. 点击转到凭据页面
-4. 跟着如下图片步骤
-   ![GoogleProof](https://user-images.githubusercontent.com/48512251/162598190-f30eeaa2-aeeb-4a95-bea5-111b0114cb1f.png)
-   ![GoogleAddProof](https://user-images.githubusercontent.com/48512251/162598203-3cc53fd6-a488-44b0-ae11-ed9fad3a5844.png)
-   ![GoogleNone](https://user-images.githubusercontent.com/48512251/162598217-7fa7facb-8cce-4da3-8fec-01a4a07e204d.png)
-   ![GoogleKey](https://user-images.githubusercontent.com/48512251/162598232-4f0cc998-98d4-4652-92cd-4575dd253642.png)
-   json 文件内的内容
+### (1) 开启Indexing API
+
+打开[Google indexing API](https://console.developers.google.com/flows/enableapi?apiid=indexing.googleapis.com&credential=client_key)
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-开启-创建项目.jpg)
+
+如果账号中没有项目, 点击`创建项目`, 创建完项目后继续下面的操作.
+
+点击`下一步`, `开启`即可.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-开启-开启API.jpg)
+
+开启完成就是这样, 感觉像是卡住了.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-开启-开启完成.jpg)
+### (2) 打开凭证页面
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-创建凭证-进入创建页面.jpg)
+
+### (3) 创建服务账号
+
+点击`创建凭证`, 点击`服务账号`.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-创建凭证-创建服务账号.jpg)
+
+`输入`服务账号名称, 然后直接点击`完成`, 
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-创建凭证-服务账号名称.jpg)
+
+### (4) 创建凭证
+
+点击刚刚创建的服务账号
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-创建凭证-服务账号详情.jpg)
+
+点击`密钥`标签, 点击`添加密钥`, 点击`创建新密钥`.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-创建凭证-创建密钥.jpg)
+
+选择JSON格式, 点击`创建`, 然后JSON格式的密钥就会自动下载到电脑中.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-创建凭证-json密钥.jpg)
+
+json文件内的内容, 
+
    > 以下信息已经过修改，并且已删除相关的申请，仅用于参考
    >
-   > 其中`private_key`和`client_email`是该项目需要的
+   > 其中`private_key`和`client_email`是该项目需要的, 
+   > 
+   > 注意在GitHub中的Secrets名为, `google_private_key`和`google_client_email`
 
 ```json
 {
@@ -100,6 +138,72 @@ deploy:
 }
 ```
 
-5. 打开[谷歌站长平台](https://search.google.com/search-console)
-   ![GoogleAddUser](https://user-images.githubusercontent.com/48512251/162598242-b9ff8405-ecf5-403e-968b-c40b9ec129de.png)
-   ![GoogleAddEmail](https://user-images.githubusercontent.com/48512251/162598241-671bbf31-de97-4a04-866b-9cdfeea2f4e5.png)
+### (5) 为服务账号授权
+
+打开[谷歌站长](https://search.google.com/search-console), `选择`需要设置的网站, 点击`设置`, 点击`用户和权限`, 点击`添加用户`.
+
+电子邮箱地址: json文件中的client_email字段
+
+权限: 选择`拥有者`, 选择`完整`GitHub执行时会报权限错误.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-开启-站长授权.jpg)
+
+### (6) GitHub填入secrets
+
+google_private_key: json文件中的private_key字段, 填入时要带双引号
+google_client_email: json文件中的client_email字段, 填入时不带双引号
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-GitHub-secrets.jpg)
+
+### (7) 官网说明
+
+由于谷歌常更新页面, 所以如果以上操作出现问题, 可参考官方教程, 不过官方教程也不是完成100%跟页面同步的.
+
+[使用 Indexing API 的前提条件  |  Google Developers](https://developers.google.com/search/apis/indexing-api/v3/prereqs?hl=zh_CN)
+
+## 验证
+
+取消Star, 再点击Star, 触发自动提交.
+
+### GitHub Action结果
+
+点击Actions, 查看执行情况.
+
+如果返回更新内容, 就说明成功了.
+
+```json
+# 百度的
+{"remain":2990,"success":10}
+# 必应的
+{"d":null}
+# 谷歌的
+Google response: {...}
+```
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-测试.jpg)
+
+### 百度页面结果
+
+打开[百度站长](https://ziyuan.baidu.com/linksubmit/), 选择对应站点, 选择普通收录中的数据反馈.
+
+看到当日API提交有值, 说明成功了. 但是这个页面好像有延迟, 不是GitHub Action那么指定完这个页面就能刷出来结果.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/百度站点提交结果.jpg)
+
+### 必应页面结果
+
+打开[Home - Bing Webmaster Tools](https://www.bing.com/webmasters/), `URL提交`标签
+
+有提交信息说明成功了.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/必应站点提交结果.jpg)
+
+### 谷歌页面结果
+
+在[Google Cloud Platform](https://console.cloud.google.com/apis/dashboard) 中查看. 
+
+错误率只要不是100%, 就说明成功了.
+
+![](https://img-res.oss-cn-beijing.aliyuncs.com/img/谷歌IndexingAPI-测试2.jpg)
+
+
