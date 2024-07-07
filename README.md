@@ -4,6 +4,12 @@
 
 可手动点击`star`触发 Actions
 
+简述一下整个流程。
+
+以`bing`搜索引擎为例，插件运行以后会生成两个文件，一个是`.github/workflows/HexoSeoAutoPush.yml`的`Github Action`配置文件，一个是`bing.json`存放需要推送的`url`。我自己只推送给了`bing`引擎，其他引擎若有细微区别，请自研。这些都会生成在打包的文件当中，最终会被推送到部署分支。`HexoSeoAutoPush.yml`会读取部署分支的`bing.json`的内容然后进行推送。因此注意到一件事情，不管是每天自动触发，还是手动`star`触发的`Action`，都需要保证`HexoSeoAutoPush.yml`位于项目的默认分支才能生效。结合起来可以知道，部署分支必须是默认分支才能使得插件生效。问题来了，不是每个人的部署分支都是默认分支。比如我的默认分支就是源代码分支，部署分支就是普遍的`gh-pages`。
+
+那该如何解决这个问题呢？留意到`actions.js`中使用了[actions/checkout@main](https://github.com/actions/checkout)来`checkout`一个仓库，但是没有添加部署分支的相关属性，默认这里是`checkout`默认分支，和上面对应。得知这一点以后，顺理成章加上部署分支`deployBranch`的相关逻辑，彻底将部署分支和默认分支区别开。这样最终的使用方法就明确了。在打包文件中生成`HexoSeoAutoPush.yml`以后，手动将他拷到默认分支的`.github/workflows/`中。记得如果有时间周期、提交数目或者部署分支的改动以后，请同步此文件到默认分支。其他使用方式同原插件不变。
+
 ## 使用
 
 1. 安装
@@ -18,11 +24,13 @@ npm install hexo-seo-autopush --save
 ```yml
 # enable: 开启/关闭 推送
 # cron: 执行时间周期
+# deployBranch: 部署分支
 # count: 每次提交最新的10篇文章，输入0或者不填写则默认为所有文章(建议是最新的10篇文章)
 # date: 更新时间(updated)|创建日期(created)
 # https://github.com/Lete114/hexo-seo-autopush.git
 hexo_seo_autopush:
   cron: 0 4 * * *
+  deployBranch:
   baidu:
     enable: true
     date: created
