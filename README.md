@@ -30,7 +30,7 @@ npm install hexo-seo-autopush --save
 # https://github.com/Lete114/hexo-seo-autopush.git
 hexo_seo_autopush:
   cron: 0 4 * * *
-  deployBranch: gh-pages
+  deployBranch:
   baidu:
     enable: true
     date: created
